@@ -19,7 +19,7 @@ if lib_checker.installed_libs[PYSPARK]:
 
 if lib_checker.installed_libs[SCIKIT]:
     from ..mlrepositoryartifact.version_helper import ScikitModelBinary
-    from sklearn.externals import joblib
+    import joblib
 
     if lib_checker.installed_libs[XGBOOST]:
         from xgboost import Booster

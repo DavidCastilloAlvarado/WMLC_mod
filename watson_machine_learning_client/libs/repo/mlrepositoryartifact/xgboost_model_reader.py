@@ -52,7 +52,7 @@ class XGBoostModelReader(ArtifactReader):
     def _save_xgboost_model_to_file(self, path):
         try:
             from xgboost.sklearn import XGBRegressor
-            from sklearn.externals import joblib
+            import joblib
             saving_model = XGBRegressor()
             saving_model._Booster = self.xgboost_model
             full_file_name = os.path.join(path, XGBoostModelBinary.model_bin_name())

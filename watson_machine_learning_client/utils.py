@@ -170,7 +170,7 @@ def load_model_from_directory(framework, directory_path):
         pass
     elif framework == SCIKIT_LEARN_FRAMEWORK or framework == XGBOOST_FRAMEWORK:
         try:
-            from sklearn.externals import joblib
+            import joblib
             pkl_files = [x for x in os.listdir(directory_path) if x.endswith('.pkl')]
 
             if len(pkl_files) < 1:
@@ -195,7 +195,7 @@ def load_model_from_directory(framework, directory_path):
 #     elif framework == TENSORFLOW_FRAMEWORK:
 #         pass
 #     elif framework == SCIKIT_LEARN_FRAMEWORK or framework == XGBOOST_FRAMEWORK:
-#         from sklearn.externals import joblib
+#         import joblib
 #         model_id = directory_path[directory_path.rfind('/') + 1:] + ".pkl"
 #         return joblib.load(os.path.join(directory_path, model_id))
 #     elif framework == PMML_MODEL:
@@ -227,7 +227,7 @@ def save_model_to_file(model, framework, base_path, filename):
         pass
     elif framework == SCIKIT_LEARN_FRAMEWORK:
         os.makedirs(os.path.join(base_path, base_name))
-        from sklearn.externals import joblib
+        import joblib
         joblib.dump(model, os.path.join(base_path, base_name, base_name + ".pkl"))
     elif framework == PMML_FRAMEWORK:
         pass
